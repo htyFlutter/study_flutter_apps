@@ -79,16 +79,20 @@ class _JihankiState extends State<Jihanki> {
               content: Text('お釣り$totalputinYen円です。'),
               actions: [
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    setState(() {
+                      totalputinYen = 0;
+                      errorMessage = '';
+                    });
+                    Navigator.pop(context);
+                  },
+
                   child: const Text('確認'),
                 ),
               ],
             );
           },
         );
-
-        totalputinYen = 0;
-        errorMessage = '';
       });
     }
   }
