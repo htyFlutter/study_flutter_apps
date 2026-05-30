@@ -3,32 +3,22 @@ import 'package:flutter/material.dart';
 class Duolingo extends StatefulWidget {
   const Duolingo({super.key});
 
-  @override  
+  @override
   State<Duolingo> createState() => _DuolingoState();
 }
 
 class _DuolingoState extends State<Duolingo> {
   int totalStudiedDay = 0;
-  List<bool> dayStamps = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
-  bool isStamps = false;
+  List<bool> dayStamps = [false, false, false, false, false, false, false];
 
-
-  //引数あってるかな？　　↓
   void studiedDone(int index) {
     setState(() {
+      dayStamps[index] = true;
       totalStudiedDay += 1;
-      //② 1週間分のリストの「今日の日曜日（例えば月曜日なら0番目）」のスイッチを「ON（true）」に書き換える。
-      //あってるんかな？？？？？
-      dayStamps[index]; 
-      isStamps = true;
+
+      if (index == 6) {
+        dayStamps = [false, false, false, false, false, false, false];
+      }
     });
   }
 
@@ -45,30 +35,43 @@ class _DuolingoState extends State<Duolingo> {
             '通算日数: $totalStudiedDay日',
             style: TextStyle(color: Colors.cyanAccent, fontSize: 18),
           ),
-          if (totalStudiedDay == 0) 
-            const Text('0日だけど、大丈夫そ？',style: TextStyle(color: Colors.red)),
+          if (totalStudiedDay == 0)
+            const Text('0日だけど、大丈夫そ？', style: TextStyle(color: Colors.red)),
           const SizedBox(height: 20),
-          
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              dayStamps[0] ? Icon(Icons.star, color: Colors.amber) : Icon(Icons.circle, color: Colors.grey),
-              dayStamps[1] ? Icon(Icons.star, color: Colors.amber) : Icon(Icons.circle, color: Colors.grey),
-              dayStamps[2] ? Icon(Icons.star, color: Colors.amber) : Icon(Icons.circle, color: Colors.grey),
-              dayStamps[3] ? Icon(Icons.star, color: Colors.amber) : Icon(Icons.circle, color: Colors.grey),
-              dayStamps[4] ? Icon(Icons.star, color: Colors.amber) : Icon(Icons.circle, color: Colors.grey),
-              dayStamps[5] ? Icon(Icons.star, color: Colors.amber) : Icon(Icons.circle, color: Colors.grey),
-              dayStamps[6] ? Icon(Icons.star, color: Colors.amber) : Icon(Icons.circle, color: Colors.grey),
-              
+              dayStamps[0]
+                  ? Icon(Icons.star, color: Colors.amber)
+                  : Icon(Icons.circle, color: Colors.grey),
+              dayStamps[1]
+                  ? Icon(Icons.star, color: Colors.amber)
+                  : Icon(Icons.circle, color: Colors.grey),
+              dayStamps[2]
+                  ? Icon(Icons.star, color: Colors.amber)
+                  : Icon(Icons.circle, color: Colors.grey),
+              dayStamps[3]
+                  ? Icon(Icons.star, color: Colors.amber)
+                  : Icon(Icons.circle, color: Colors.grey),
+              dayStamps[4]
+                  ? Icon(Icons.star, color: Colors.amber)
+                  : Icon(Icons.circle, color: Colors.grey),
+              dayStamps[5]
+                  ? Icon(Icons.star, color: Colors.amber)
+                  : Icon(Icons.circle, color: Colors.grey),
+              dayStamps[6]
+                  ? Icon(Icons.star, color: Colors.amber)
+                  : Icon(Icons.circle, color: Colors.grey),
             ],
           ),
-          
+
           const SizedBox(height: 20),
-          
+
           ElevatedButton(
             onPressed: () {
-              //リストの月曜日だから0だけど合ってるんかな？
-              studiedDone(0);
+              int stampsIndex = totalStudiedDay % 7;
+              studiedDone(stampsIndex);
             },
             child: const Text('All Done!'),
           ),

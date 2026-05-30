@@ -1,4 +1,5 @@
 import 'package:counter_apps/all_apps/chat/chat_answer_gemini.dart';
+import 'package:counter_apps/all_apps/like_duolingo/stamp_screen.dart';
 import 'package:counter_apps/all_apps/quiz/list_practice.dart';
 import 'package:marquee/marquee.dart';
 import 'package:counter_apps/all_apps/jihanki/jihanki.dart';
@@ -36,6 +37,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const Jihanki(), 
     const ListPractice(),
     const ChatAppsGemini(),
+    const Duolingo(),
     ];
 
   @override
@@ -49,7 +51,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             color: Colors.black,
             height: 30,
             child: Marquee(
-              text: 'コカコータ専用自販機へようこそ！つめた〜いコーラ販売中！　お釣りボタンを押すと残高が表示されます。' ,
+              text: 'コカコータ専用自販機へようこそ！つめた〜いコーラ販売中！ お釣りボタンを押すと残高が表示されます。' ,
               style: const TextStyle(
                 color: Colors.redAccent, 
                 fontWeight: FontWeight.bold,
@@ -82,7 +84,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
               BottomNavigationBarItem(
                 icon: Icon(Icons.chat),
                 label: 'チャット',
-              )
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.done, color: Colors.red),
+                label: 'デイリー',
+              ),
             ],
             type: BottomNavigationBarType.fixed,
           )
