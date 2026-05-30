@@ -36,8 +36,9 @@ class _ChatAppsState extends State<ChatApps> {
 
     //【ステップ③：厨房（Gemini）にメッセージを送る】
     final model = GenerativeModel(
+      //chat_screen.dart
       model: 'models/gemini-2.5-flash',
-      apiKey: 'AQ.Ab8RN6L5AZUyf3C2X6iXZ9_Khcd6MjERVBDYJyQn3kGlSUuKPg',
+      apiKey: '',
     );
     final content = [Content.text(text)];
     final response = await model.generateContent(content);

@@ -30,9 +30,10 @@ class _ChatAppsGeminiState extends State<ChatAppsGemini> {
     });
 
     try {
+      //chat_gemini_answer.dart
       final model = GenerativeModel(
         model: 'gemini-1.5-flash',
-        apiKey: 'AQ.Ab8RN6KghhZdQuTMOKQhTI0uIy9iJhkvjtbmM1o0-R8p2IBB-A',
+        apiKey: '',
       );
 
       final content = [Content.text(text)];
