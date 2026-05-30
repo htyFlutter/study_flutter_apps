@@ -1,6 +1,7 @@
-import 'package:counter_apps/quiz/list_practice.dart';
+import 'package:counter_apps/all_apps/chat/chat_answer_gemini.dart';
+import 'package:counter_apps/all_apps/quiz/list_practice.dart';
 import 'package:marquee/marquee.dart';
-import 'package:counter_apps/jihanki/jihanki.dart';
+import 'package:counter_apps/all_apps/jihanki/jihanki.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,7 +32,11 @@ class MainNavigationScreen extends StatefulWidget {
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [const Jihanki(), const ListPractice()];
+  final List<Widget> _screens = [
+    const Jihanki(), 
+    const ListPractice(),
+    const ChatAppsGemini(),
+    ];
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +79,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 icon: Icon(Icons.book),
                 label: 'クイズ',
               ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.chat),
+                label: 'チャット',
+              )
             ],
             type: BottomNavigationBarType.fixed,
           )
