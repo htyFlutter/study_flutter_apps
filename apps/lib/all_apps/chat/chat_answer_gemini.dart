@@ -53,6 +53,8 @@ class _ChatAppsGeminiState extends State<ChatAppsGemini> {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

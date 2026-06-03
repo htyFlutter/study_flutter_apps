@@ -22,6 +22,13 @@ class _DuolingoState extends State<Duolingo> {
     });
   }
 
+  void dayReset() {
+    setState(() {
+      dayStamps = [false, false, false, false, false, false, false];
+      totalStudiedDay = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +81,14 @@ class _DuolingoState extends State<Duolingo> {
               studiedDone(stampsIndex);
             },
             child: const Text('All Done!'),
+          ),
+          const SizedBox(height: 10),
+
+          ElevatedButton(
+            onPressed: () {
+              dayReset();
+            },
+            child: const Text('リセットする'),
           ),
         ],
       ),

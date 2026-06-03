@@ -1,6 +1,6 @@
 import 'package:counter_apps/all_apps/chat/chat_answer_gemini.dart';
 import 'package:counter_apps/all_apps/like_duolingo/stamp_screen.dart';
-import 'package:counter_apps/all_apps/quiz/list_practice.dart';
+import 'package:counter_apps/math_card/math.card.dart';
 import 'package:marquee/marquee.dart';
 import 'package:counter_apps/all_apps/jihanki/jihanki.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   final List<Widget> _screens = [
     const Jihanki(), 
-    const ListPractice(),
+    const MathCard(),
     const ChatAppsGemini(),
     const Duolingo(),
     ];
