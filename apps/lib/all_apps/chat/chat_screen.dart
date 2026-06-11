@@ -68,8 +68,10 @@ class _ChatAppsState extends State<ChatApps> {
             child: ListView.builder(
               itemCount: chatList.length,
               itemBuilder: (BuildContext context, int index) {
-                Container(height: 30);
-                return Text(chatList[index]);
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                  child: Text(chatList[index]),
+                );
               },
             ),
           ),
@@ -78,7 +80,14 @@ class _ChatAppsState extends State<ChatApps> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(child: TextField()),
+              Expanded(
+                child: TextField(
+                  controller: _controller,
+                  decoration: const InputDecoration(
+                    hintText: 'メッセージを入力',
+                  ),
+                ),
+              ),
               IconButton(
                 onPressed: () {
                   askForGemini(_controller.text);

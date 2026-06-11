@@ -1,8 +1,9 @@
 import 'package:counter_apps/all_apps/chat/chat_answer_gemini.dart';
 import 'package:counter_apps/all_apps/like_duolingo/stamp_screen.dart';
-import 'package:counter_apps/math_card/math.card.dart';
+import 'package:counter_apps/all_apps/unit_apps_screen/unit.dart';
+import 'package:counter_apps/math_apps/home_screen_p.dart';
 import 'package:marquee/marquee.dart';
-import 'package:counter_apps/all_apps/jihanki/jihanki.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,14 +32,14 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Widget> _screens = [
-    const Jihanki(), 
-    const MathCard(),
+    const HomeScreen(),
+    const UnitScreen(),
     const ChatAppsGemini(),
     const Duolingo(),
-    ];
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +52,9 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             color: Colors.black,
             height: 30,
             child: Marquee(
-              text: 'コカコータ専用自販機へようこそ！つめた〜いコーラ販売中！ お釣りボタンを押すと残高が表示されます。' ,
+              text: 'コカコータ専用自販機へようこそ！つめた〜いコーラ販売中！ お釣りボタンを押すと残高が表示されます。',
               style: const TextStyle(
-                color: Colors.redAccent, 
+                color: Colors.redAccent,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
@@ -77,21 +78,15 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 icon: Icon(Icons.local_drink),
                 label: '自販機',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.book),
-                label: 'クイズ',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.chat),
-                label: 'チャット',
-              ),
+              BottomNavigationBarItem(icon: Icon(Icons.book), label: 'クイズ'),
+              BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'チャット'),
               BottomNavigationBarItem(
                 icon: Icon(Icons.done, color: Colors.red),
                 label: 'デイリー',
               ),
             ],
             type: BottomNavigationBarType.fixed,
-          )
+          ),
         ],
       ),
     );
