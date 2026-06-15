@@ -1,7 +1,7 @@
 import 'package:counter_apps/all_apps/chat/chat_answer_gemini.dart';
-import 'package:counter_apps/all_apps/like_duolingo/stamp_screen.dart';
 import 'package:counter_apps/all_apps/unit_apps_screen/unit.dart';
 import 'package:counter_apps/math_apps/home_screen_p.dart';
+import 'package:counter_apps/math_apps/settings.dart';
 import 'package:marquee/marquee.dart';
 
 import 'package:flutter/material.dart';
@@ -38,7 +38,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const HomeScreen(),
     const UnitScreen(),
     const ChatAppsGemini(),
-    const Duolingo(),
+    //ここの引数がわからないです
+     SettingsScreen(),
   ];
 
   @override
@@ -52,7 +53,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             color: Colors.black,
             height: 30,
             child: Marquee(
-              text: 'コカコータ専用自販機へようこそ！つめた〜いコーラ販売中！ お釣りボタンを押すと残高が表示されます。',
+              text: '自販機へようこそ！つめた〜いコーラ販売中！ お釣りボタンを押すと残高が表示されます。',
               style: const TextStyle(
                 color: Colors.redAccent,
                 fontWeight: FontWeight.bold,
@@ -75,14 +76,14 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             },
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.local_drink),
-                label: '自販機',
+                icon: Icon(Icons.home),
+                label: 'home',
               ),
-              BottomNavigationBarItem(icon: Icon(Icons.book), label: 'クイズ'),
-              BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'チャット'),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
               BottomNavigationBarItem(
-                icon: Icon(Icons.done, color: Colors.red),
-                label: 'デイリー',
+                icon: Icon(Icons.home, color: Colors.red),
+                label: 'home',
               ),
             ],
             type: BottomNavigationBarType.fixed,
